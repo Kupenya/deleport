@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    @apply antialiased overflow-x-hidden bg-black text-white;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .mask-reveal {
+    overflow: hidden;
+    display: block;
+  }
+
+  .mask-reveal > * {
+    display: block;
+  }
+
+  /* Cinematic Design System Shims */
+  .text-accent { color: #4D7CFF; }
+  .bg-accent { background-color: #4D7CFF; }
+  .bg-accent-muted { background-color: #1A1A1A; }
+  .text-secondary { color: #888888; }
+  .font-heading { font-family: "Space Grotesk", sans-serif; }
+  .tracking-cinematic { letter-spacing: 0.3em; }
+  .tracking-editorial { letter-spacing: 0.05em; }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #222;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4D7CFF;
+}
+
+/* Smooth Scrolling Hook */
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background-color: #4D7CFF;
+  color: #FFFFFF;
+}
