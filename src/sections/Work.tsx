@@ -10,6 +10,9 @@ const Work = () => {
   // Show only first 4 projects
   const displayedProjects = projects.slice(0, 4);
 
+  // Helper to detect if it's a Google Drive preview link
+  const isGoogleDrive = (url: string) => url && url.includes("drive.google.com");
+
   return (
     <section id="work" className="bg-black py-24 px-8" aria-label="Selected Portfolio">
       <div className="max-w-7xl mx-auto">
@@ -53,19 +56,33 @@ const Work = () => {
                   className="block w-full h-full overflow-hidden bg-accent-muted rounded-sm"
                 >
                   <article className="w-full h-full relative">
-                    {/* Image Background */}
-                    <motion.img
-                      src={project.image}
-                      alt={`${project.title} - ${project.category}`}
-                      loading="lazy"
-                      animate={{
-                        scale: hoveredId === project.id ? 1.05 : 1,
-                        opacity: hoveredId === project.id ? 0.8 : 0.6,
-                        filter: hoveredId === project.id ? "grayscale(0%) blur(4px)" : "grayscale(100%) blur(0px)",
-                      }}
-                      transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
-                      className="w-full h-full object-cover"
-                    />
+                    {/* Video Background (Thumbnail) */}
+                    <motion.div 
+                        className="w-full h-full absolute inset-0 pointer-events-none"
+                        animate={{
+                            scale: hoveredId === project.id ? 1.05 : 1,
+                            opacity: hoveredId === project.id ? 0.8 : 0.6,
+                            filter: hoveredId === project.id ? "grayscale(0%) blur(4px)" : "grayscale(100%) blur(0px)",
+                        }}
+                        transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
+                    >
+                        {isGoogleDrive(project.video) ? (
+                            <iframe 
+                                src={project.video} 
+                                className="w-full h-full border-0 pointer-events-none" 
+                                title={project.title}
+                                loading="lazy"
+                            />
+                        ) : (
+                            <video
+                                src={project.video}
+                                className="w-full h-full object-cover pointer-events-none"
+                                muted
+                                playsInline
+                                loop
+                            />
+                        )}
+                    </motion.div>
 
                     {/* Cinematic Light Leak */}
                     <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-1000 pointer-events-none z-10">

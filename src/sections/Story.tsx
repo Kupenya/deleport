@@ -1,6 +1,5 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
-import { maskAnimation } from '../animations/variants';
 
 const Story = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -10,7 +9,6 @@ const Story = () => {
   });
 
   const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
 
   const paragraphs = [
     "In 2019, curiosity led me to my phone camera. Scrolling through Instagram, I saw someone tell a powerful story using just a phone. That moment changed everything.",
