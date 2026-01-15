@@ -8,175 +8,117 @@ export interface Project {
   description: string;
 }
 
+// INSTRUCTIONS FOR THE USER:
+// To use Google Drive videos:
+// 1. Upload your video to Google Drive.
+// 2. Right-click > Share > "Anyone with the link" can "View".
+// 3. Open the video in a new window (3 dots > Open in new window).
+// 4. In the new window, click 3 dots > Embed item.
+// 5. Copy the URL from the src attribute of the iframe code (e.g., "https://drive.google.com/file/d/.../preview").
+// 6. Paste that URL into the 'video' field below.
+
 export const projects: Project[] = [
   {
-    id: "silent-echo",
-    title: "The Silent Echo",
-    category: "Cinematography",
+    id: "ardo-cars",
+    title: "Ardo Cars",
+    category: "Commercial",
     year: "2024",
-    image:
-      "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&q=80&w=1600",
-    video:
-      "https://player.vimeo.com/external/494252666.hd.mp4?s=2f232015243851752b02e6c5180635338efbc002&profile_id=175",
+    image: "/images/ardo-cars.jpg", 
+    video: "https://drive.google.com/file/d/1_kx8GwRt8uOzkYERJrSWzSzvIb-lOS2z/preview",
     description:
-      "An exploration of solitude and sound in the modern wilderness.",
+      "High-octane automotive cinematography capturing the essence of speed and design.",
   },
   {
-    id: "urban-nomads",
-    title: "Urban Nomads",
-    category: "Creative Direction",
-    year: "2023",
-    image:
-      "https://images.unsplash.com/photo-1514565131-fce0801e5785?auto=format&fit=crop&q=80&w=1600",
-    video:
-      "https://player.vimeo.com/external/517090027.hd.mp4?s=999863261276022e0324107e997f0a8d6e3e571c&profile_id=175",
-    description:
-      "Capturing the pulse of the city through the eyes of those who move within it.",
-  },
-  {
-    id: "golden-hour",
-    title: "Golden Hour",
-    category: "Visual Story",
+    id: "cci-ikeja",
+    title: "CCI Ikeja",
+    category: "Event",
     year: "2024",
-    image:
-      "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&q=80&w=1600",
-    video:
-      "https://player.vimeo.com/external/459389137.hd.mp4?s=80396035882b09a936a5c31616715f3e58980a3a&profile_id=175",
+    image: "/images/cci-ikeja.jpg",
+    video: "https://drive.google.com/file/d/1aqi97JoQGL2dLmcnPUkOPUBWofqwtnIi/preview",
     description:
-      "A cinematic study on the transition of light and human emotion.",
+      "Capturing the vibrant spiritual moments and community energy.",
   },
   {
-    id: "lost-in-translation",
-    title: "Lost in Translation",
+    id: "first-bank",
+    title: "First Bank",
+    category: "Corporate",
+    year: "2025",
+    image: "/images/first-bank.jpg",
+    video: "https://drive.google.com/file/d/1gqxvFnnZ0UbQsXnxqdSH6SNHMdvk0rh3/preview",
+    description:
+      "Professional asset management campaign focusing on trust and growth.",
+  },
+  {
+    id: "kelar-thrillz",
+    title: "Kelar Thrillz - Louder",
+    category: "Music Video",
+    year: "2025",
+    image: "/images/kelar-thrillz.jpg",
+    video: "https://drive.google.com/file/d/1q943RAcp0ZeFjHotEdYRbdb5kegKLjLV/preview",
+    description: "Vibrant visuals matching the high energy of the track.",
+  },
+  {
+    id: "love-legacy",
+    title: "Love Legacy",
     category: "Documentary",
-    year: "2024",
-    image:
-      "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&q=80&w=1600",
-    video:
-      "https://player.vimeo.com/external/370374924.hd.mp4?s=7345672951717329598&profile_id=172",
+    year: "2025",
+    image: "/images/love-legacy.jpg",
+    video: "https://drive.google.com/file/d/160xyN9rRo7Ephf6o4zFwXzyuJs-5yeEn/preview",
     description:
-      "Finding meaning in the spaces between languages and cultures.",
+      "Intimate stories of enduring love and human connection.",
   },
   {
-    id: "neon-dreams",
-    title: "Neon Dreams",
-    category: "Cinematography",
-    year: "2023",
-    image:
-      "https://images.unsplash.com/photo-1519750783826-e2420f4d687f?auto=format&fit=crop&q=80&w=1600",
-    video:
-      "https://player.vimeo.com/external/370374924.hd.mp4?s=7345672951717329598&profile_id=172",
-    description: "A high-contrast exploration of nightlife and electricity.",
+    id: "malt-and-nestel",
+    title: "Malt & Nestel",
+    category: "Commercial",
+    year: "2025",
+    image: "/images/malt-nestel.jpg",
+    video: "https://drive.google.com/file/d/1zlNVUhC9Z7bMcS91VGhq0PkvOZsNAJ76/preview",
+    description: "Crisp and refreshing product cinematography.",
   },
   {
-    id: "tide-and-time",
-    title: "Tide and Time",
-    category: "Visual Story",
+    id: "osmo-pocket-3",
+    title: "Osmo Pocket 3",
+    category: "Tech Review",
+    year: "2025",
+    image: "/images/osmo-pocket.jpg",
+    video: "https://drive.google.com/file/d/1JjSzrMRvpNwqBZVR_RVfBw8pUxeeEYGu/preview",
+    description: "Showcasing cinematic capabilities in a compact form factor.",
+  },
+  {
+    id: "dj-horphuray",
+    title: "Big Ray",
+    category: "Music Video",
+    year: "2025",
+    image: "/images/big-ray.jpg",
+    video: "https://drive.google.com/file/d/1wjPxnovqeOQfWpsqsTe9V20NYlmDCWbd/preview",
+    description: "Stylized performance visuals for DJ Horphuray.",
+  },
+  {
+    id: "ethan-otedola",
+    title: "Ethan Otedola",
+    category: "Personal Brand",
+    year: "2025",
+    image: "/images/ethan-otedola.jpg",
+    video: "https://drive.google.com/file/d/1N5-zfNocX-oT0IsV4uQWsr3vvNP0I-DE/preview",
+    description: "Cinematic portraiture and lifestyle branding.",
+  },
+  {
+    id: "steven-loya",
+    title: "Steven Loya",
+    category: "Profile",
+    year: "2025",
+    image: "/images/steven-loya.jpg",
+    video: "https://drive.google.com/file/d/1GXoUKfOKeuKAfqo5jVXyG-EtCSg3RjK3/preview",
+    description: "A visual profile highlighting story and character.",
+  },
+  {
+    id: "swebs-coding",
+    title: "Swebs Coding",
+    category: "Commercial",
     year: "2024",
-    image:
-      "https://images.unsplash.com/photo-1505118380757-91f5f5632de0?auto=format&fit=crop&q=80&w=1600",
-    video:
-      "https://player.vimeo.com/external/494252666.hd.mp4?s=2f232015243851752b02e6c5180635338efbc002&profile_id=175",
-    description:
-      "The rhythmic nature of the ocean and its effect on the human psyche.",
-  },
-  {
-    id: "concrete-jungle",
-    title: "Concrete Jungle",
-    category: "Creative Direction",
-    year: "2023",
-    image:
-      "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&q=80&w=1600",
-    video:
-      "https://player.vimeo.com/external/517090027.hd.mp4?s=999863261276022e0324107e997f0a8d6e3e571c&profile_id=175",
-    description: "Minimalist architecture meets complex human narratives.",
-  },
-  {
-    id: "embers",
-    title: "Embers",
-    category: "Cinematography",
-    year: "2024",
-    image:
-      "https://images.unsplash.com/photo-1517816743773-6e0fd518b4a6?auto=format&fit=crop&q=80&w=1600",
-    video:
-      "https://player.vimeo.com/external/459389137.hd.mp4?s=80396035882b09a936a5c31616715f3e58980a3a&profile_id=175",
-    description: "Capturing the warmth and fragility of fire in slow motion.",
-  },
-  {
-    id: "azure",
-    title: "Azure",
-    category: "Documentary",
-    year: "2023",
-    image:
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1600",
-    video:
-      "https://player.vimeo.com/external/370374924.hd.mp4?s=7345672951717329598&profile_id=172",
-    description: "A deep dive into the blue economy and coastal life.",
-  },
-  {
-    id: "solitude",
-    title: "Solitude",
-    category: "Visual Story",
-    year: "2024",
-    image:
-      "https://images.unsplash.com/photo-1478720143988-87779948020b?auto=format&fit=crop&q=80&w=1600",
-    video:
-      "https://player.vimeo.com/external/494252666.hd.mp4?s=2f232015243851752b02e6c5180635338efbc002&profile_id=175",
-    description: "A meditative look at silence in a loud world.",
-  },
-  {
-    id: "vanguard",
-    title: "Vanguard",
-    category: "Creative Direction",
-    year: "2024",
-    image:
-      "https://images.unsplash.com/photo-1511447333015-45b65e60f6d1?auto=format&fit=crop&q=80&w=1600",
-    video:
-      "https://player.vimeo.com/external/517090027.hd.mp4?s=999863261276022e0324107e997f0a8d6e3e571c&profile_id=175",
-    description: "The intersection of fashion and futurism.",
-  },
-  {
-    id: "pulse",
-    title: "Pulse",
-    category: "Cinematography",
-    year: "2023",
-    image:
-      "https://images.unsplash.com/photo-1493225255756-d9584f8606e9?auto=format&fit=crop&q=80&w=1600",
-    video:
-      "https://player.vimeo.com/external/459389137.hd.mp4?s=80396035882b09a936a5c31616715f3e58980a3a&profile_id=175",
-    description: "Rhythm and light captured in experimental sequences.",
-  },
-  {
-    id: "oasis",
-    title: "Oasis",
-    category: "Documentary",
-    year: "2024",
-    image:
-      "https://images.unsplash.com/photo-1473580044384-7ba9967e16a0?auto=format&fit=crop&q=80&w=1600",
-    video:
-      "https://player.vimeo.com/external/370374924.hd.mp4?s=7345672951717329598&profile_id=172",
-    description: "Resilience and life in the harshest environments.",
-  },
-  {
-    id: "metropolis",
-    title: "Metropolis",
-    category: "Visual Story",
-    year: "2023",
-    image:
-      "https://images.unsplash.com/photo-1477346611705-65d1883cee1e?auto=format&fit=crop&q=80&w=1600",
-    video:
-      "https://player.vimeo.com/external/494252666.hd.mp4?s=2f232015243851752b02e6c5180635338efbc002&profile_id=175",
-    description: "The complex geometry of urban existence.",
-  },
-  {
-    id: "afterlight",
-    title: "Afterlight",
-    category: "Creative Direction",
-    year: "2024",
-    image:
-      "https://images.unsplash.com/photo-1502134249126-9f3755a50d78?auto=format&fit=crop&q=80&w=1600",
-    video:
-      "https://player.vimeo.com/external/517090027.hd.mp4?s=999863261276022e0324107e997f0a8d6e3e571c&profile_id=175",
-    description: "What remains after the lights go out.",
+    image: "/images/swebs-coding.jpg",
+    video: "https://drive.google.com/file/d/1YTd_lIrjUMdv6WkTo3ZR1KzZlIsSjn_B/preview",
+    description: "Showcasing modern tech education and digital skills training.",
   },
 ];

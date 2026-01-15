@@ -69,7 +69,7 @@ const Hero = () => {
         <div className="mask-reveal overflow-hidden mb-6">
           <motion.h1
             {...maskAnimation}
-            className="text-5xl md:text-[12vw] lg:text-[9rem] font-heading font-bold leading-[0.8] tracking-tighter uppercase"
+            className="text-2xl md:text-[5vw] lg:text-[4rem] font-heading font-bold leading-[0.8] tracking-tighter uppercase"
           >
             OLADELE FETUGA
           </motion.h1>
