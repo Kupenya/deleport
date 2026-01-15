@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { projects } from "../data/projects";
 import { maskAnimation } from "../animations/variants";
@@ -13,84 +13,81 @@ const PortfolioPage = () => {
         <div className="mask-reveal overflow-hidden mb-24">
           <motion.h1
             {...maskAnimation}
-            className="text-5xl md:text-8xl lg:text-[12rem] font-heading font-bold tracking-tighter uppercase leading-[0.8]"
+            className="text-2xl md:text-3xl lg:text-[5rem] font-heading font-bold tracking-tighter uppercase leading-[0.8]"
           >
             SELECTED <br />{" "}
             <span className="text-secondary italic opacity-50">PORTFOLIO</span>
           </motion.h1>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => (
-            <Link
-              key={project.id}
-              to={`/portfolio/${project.id}`}
-              className="group relative block aspect-4/5 bg-accent-muted overflow-hidden rounded-sm project-card"
-              onMouseEnter={() => setHoveredId(project.id)}
-              onMouseLeave={() => setHoveredId(null)}
-            >
-              {/* Cover Image */}
-              <motion.img
-                src={project.image}
-                alt={project.title}
-                loading="lazy"
-                animate={{
-                  scale: hoveredId === project.id ? 1.05 : 1,
-                  opacity: hoveredId === project.id ? 0 : 0.6,
-                }}
-                transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
-                className="w-full h-full object-cover grayscale"
-              />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 auto-rows-[300px] md:auto-rows-[400px]">
+          {projects.map((project, index) => {
+            // Determine span based on index for uneven grid effect
+            // Pattern: 2 cols -> 1 col -> 1 col -> 2 cols
+            const isWide = index % 4 === 0 || index % 4 === 3;
+            const spanClass = isWide ? "md:col-span-2" : "md:col-span-1";
 
-              {/* Video Preview on Hover */}
-              <AnimatePresence>
-                {hoveredId === project.id && (
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.6 }}
-                    className="absolute inset-0 z-0"
-                  >
-                    <video
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
+            return (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className={`relative group ${spanClass}`}
+                onMouseEnter={() => setHoveredId(project.id)}
+                onMouseLeave={() => setHoveredId(null)}
+              >
+                <Link
+                  to={`/portfolio/${project.id}`}
+                  className="block w-full h-full overflow-hidden bg-accent-muted rounded-sm"
+                >
+                  <article className="w-full h-full relative">
+                    {/* Cover Image */}
+                    <motion.img
+                      src={project.image}
+                      alt={project.title}
+                      loading="lazy"
+                      animate={{
+                        scale: hoveredId === project.id ? 1.05 : 1,
+                        opacity: hoveredId === project.id ? 0.8 : 0.6,
+                        filter: hoveredId === project.id ? "grayscale(0%) blur(4px)" : "grayscale(100%) blur(0px)",
+                      }}
+                      transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
                       className="w-full h-full object-cover"
-                      src={project.video}
                     />
-                  </motion.div>
-                )}
-              </AnimatePresence>
 
-              {/* Cinematic Overlay */}
-              <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 flex flex-col justify-end p-8 z-10">
-                <div className="overflow-hidden">
-                  <motion.div
-                    initial={{ y: "100%" }}
-                    animate={{ y: hoveredId === project.id ? 0 : "100%" }}
-                    transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
-                  >
-                    <p className="text-accent text-[10px] uppercase tracking-cinematic font-bold mb-2">
-                      {project.category}
-                    </p>
-                    <h3 className="text-3xl font-heading font-bold uppercase tracking-tighter text-white mb-2">
-                      {project.title}
-                    </h3>
-                    <p className="text-secondary text-[10px] uppercase tracking-widest opacity-60">
-                      {project.year}
-                    </p>
-                  </motion.div>
-                </div>
-              </div>
+                    {/* Blue Accent Light Leak */}
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-1000 pointer-events-none z-10">
+                      <div className="absolute top-[-20%] left-[-20%] w-[60%] h-[60%] bg-accent blur-[120px] rounded-full animate-pulse" />
+                    </div>
 
-              {/* Blue Accent Light Leak */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-1000 pointer-events-none z-20">
-                <div className="absolute top-[-20%] left-[-20%] w-[60%] h-[60%] bg-accent blur-[100px] rounded-full animate-pulse" />
-              </div>
-            </Link>
-          ))}
+                    {/* Cinematic Overlay */}
+                    <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 flex flex-col justify-end p-6 md:p-8 z-20">
+                      <div className="flex flex-col justify-end translate-y-6 group-hover:translate-y-0 transition-transform duration-700 ease-[0.76, 0, 0.24, 1]">
+                        <p className="text-[9px] uppercase tracking-[0.4em] text-accent mb-2 font-bold">
+                          {project.category}
+                        </p>
+                        <div className="flex flex-col gap-4">
+                          <div className="flex justify-between items-end">
+                            <h3 className="text-xl md:text-3xl font-heading font-bold tracking-tighter uppercase leading-none">
+                              {project.title}
+                            </h3>
+                            <p className="text-xs font-heading italic text-secondary opacity-50 shrink-0">
+                              {project.year}
+                            </p>
+                          </div>
+                          <p className="text-xs text-secondary/80 line-clamp-2 max-w-[90%]">
+                            {project.description}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </Link>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
